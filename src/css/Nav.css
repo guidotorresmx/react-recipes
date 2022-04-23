@@ -1,0 +1,44 @@
+.nav {
+  --bs-bg-opacity: 0.8;
+}
+
+.nav-item {
+  padding: 1em;
+  color: black;
+}
+
+.nav-item > a {
+  color: black;
+  text-decoration: none;
+}
+
+.App-logo {
+  max-width: 4em;
+  max-height: 4em;
+  height: 50px;
+  min-height: 50px;
+}
+
+.icon {
+  color: black;
+  font-size: 1.5em;
+  padding: 1.5rem 0.4rem 0.4rem 0.4rem;
+}
+
+.icon:hover {
+  font-size: 2em;
+  padding: 1rem 0.3rem 0.3rem 0.3rem;
+}
+
+.min-100 {
+  min-height: 100%;
+}
+.footer {
+  text-align: center;
+  margin-left: auto;
+  margin-right: auto;
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+  --bs-bg-opacity: 0.8;
+}

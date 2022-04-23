@@ -1,0 +1,13 @@
+.pswp-gallery * img {
+  max-width: 200px;
+  max-height: 200px;
+  padding: 1rem;
+}
+
+.gallery-img:hover {
+  transform: scale(1.2);
+}
+
+.pswp__img {
+  padding: 1rem;
+}
