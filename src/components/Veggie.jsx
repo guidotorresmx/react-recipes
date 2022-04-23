@@ -38,31 +38,37 @@ function Veggie() {
   };
 
   return (
-    <div>
+    <div className="container">
       <Wrapper>
         <h3>Vegetarian Recipes</h3>
 
         <Splide
           options={{
-            perPage: 4,
-            arrows: false,
-            pagination: false,
-            drag: "free",
-            gap: "5rem",
+            type: "loop",
+            perPage: 2,
+            perMove: 1,
+            gap: "1rem",
+            pagination: true,
+            height: "25rem",
+            autoplay: true,
+            pauseOnHover: false,
+            resetProgress: false,
+            interval: 1300,
           }}
         >
-          {veggie.map((recipe) => {
-            return (
-              // add key id
-              <SplideSlide>
-                <Card>
-                  <p>{recipe.title}</p>
-                  <img src={recipe.image} alt={recipe.title} />
-                  <Gradient />
-                </Card>
-              </SplideSlide>
-            );
-          })}
+          {veggie &&
+            veggie.map((recipe) => {
+              return (
+                // add key id
+                <SplideSlide>
+                  <Card>
+                    <p>{recipe.title}</p>
+                    <img src={recipe.image} alt={recipe.title} />
+                    <Gradient />
+                  </Card>
+                </SplideSlide>
+              );
+            })}
         </Splide>
       </Wrapper>
     </div>

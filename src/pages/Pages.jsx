@@ -5,7 +5,7 @@ import Cuisine from "../components/Cuisine";
 function Pages() {
   return (
     <Routes>
-      <Route path="/" element={<Home />} />
+      <Route path="/cuisine/" element={<Home />} />
       <Route path="/cuisine/:type" element={<Cuisine />} />
     </Routes>
   );

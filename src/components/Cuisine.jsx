@@ -48,7 +48,7 @@ function Cuisine() {
   };
 
   return (
-    <div>
+    <div className="container">
       <Wrapper>
         <h3>Vegetarian Recipes</h3>
 
@@ -56,10 +56,14 @@ function Cuisine() {
           options={{
             type: "loop",
             perPage: 2,
-            perMove: 1,
+            arrows: true,
+            pagination: true,
+            drag: "free",
             gap: "1rem",
-            pagination: false,
-            height: "10rem",
+            autoplay: true,
+            pauseOnHover: false,
+            resetProgress: false,
+            interval: 2300,
           }}
         >
           {cuisine &&
@@ -81,7 +85,8 @@ function Cuisine() {
 }
 
 const Wrapper = styled.div`
-  margin: 4rem 0;
+  max-width: 960px;
+  margin: 4rem 4rem 0 4rem;
 `;
 
 const Card = styled.div`

@@ -18,7 +18,11 @@ function Popular() {
 
     try {
       const check = localStorage.getItem("popular");
-      setPopular(JSON.parse(check));
+      if (check) {
+        setPopular(JSON.parse(check));
+      } else {
+        throw "no prefetched on localstorage";
+      }
     } catch {
       const api = await fetch(
         `https://api.spoonacular.com/recipes/random?apiKey=${endpoint.API_KEY}&number=9`
@@ -32,31 +36,38 @@ function Popular() {
   };
 
   return (
-    <div>
+    <div className="container">
       <Wrapper>
         <h3>Popular Recipes</h3>
 
         <Splide
           options={{
-            perPage: 4,
-            arrows: false,
-            pagination: false,
+            type: "loop",
+            perPage: 3,
+            arrows: true,
+            pagination: true,
             drag: "free",
-            gap: "5rem",
+            gap: "1rem",
+            autoplay: true,
+            pauseOnHover: false,
+            resetProgress: false,
+            interval: 2300,
           }}
         >
-          {popular.map((recipe) => {
-            return (
-              // add key id
-              <SplideSlide>
-                <Card>
-                  <p>{recipe.title}</p>
-                  <img src={recipe.image} alt={recipe.title} />
-                  <Gradient />
-                </Card>
-              </SplideSlide>
-            );
-          })}
+          {popular &&
+            popular.map((recipe) => {
+              return (
+                // add key id
+                <SplideSlide>
+                  <Card>
+                    <p>{recipe.title}</p>
+                    <img src={recipe.image} alt={recipe.title} />
+                    <Gradient />
+                  </Card>
+                </SplideSlide>
+              );
+            })}
+          <li class="splide__slide" data-splide-interval="300"></li>
         </Splide>
       </Wrapper>
     </div>
