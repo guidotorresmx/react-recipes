@@ -38,8 +38,8 @@ function Navbar() {
             </NavLink>
           </li>
           <li className="nav-item">
-            <NavLink to="/cuisine/american">
-              <h4>American</h4>
+            <NavLink to="/cuisine/mexican">
+              <h4>Mexican</h4>
             </NavLink>
           </li>
           <li className="nav-item">

@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import styled from "styled-components";
 import { Splide, SplideSlide } from "@splidejs/react-splide";
 import "@splidejs/react-splide/css";
+import endpoint from "../endpoints.config";
 
 function Popular() {
   const [popular, setPopular] = useState([]);
@@ -14,13 +15,13 @@ function Popular() {
   // Render data 1st
   const getPopular = async () => {
     // localstorage for storing our recipes
-    const check = localStorage.getItem("popular");
 
-    if (check) {
+    try {
+      const check = localStorage.getItem("popular");
       setPopular(JSON.parse(check));
-    } else {
+    } catch {
       const api = await fetch(
-        `https://api.spoonacular.com/recipes/random?apiKey=${process.env.API_KEY}&number=9`
+        `https://api.spoonacular.com/recipes/random?apiKey=${endpoint.API_KEY}&number=9`
       );
       const data = await api.json();
 

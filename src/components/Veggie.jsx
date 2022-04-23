@@ -19,12 +19,15 @@ function Veggie() {
     try {
       console.log("veggie from localstorage");
       const check = localStorage.getItem("veggie");
-      setVeggie(JSON.parse(check));
+      if (check) {
+        setVeggie(JSON.parse(check));
+      } else {
+        throw "no prefetched on localstorage";
+      }
     } catch {
       console.log("veggie from api");
-      console.log(endpoint.API_KEY);
       const api = await fetch(
-        `https://api.spoonacular.com/recipes/random?apiKey=${endpoint.API_KEY}&number=9&tage=vegetarian`
+        `https://api.spoonacular.com/recipes/random?apiKey=${endpoint.API_KEY}&number=9&tags=vegetarian`
       );
       const data = await api.json();
 
