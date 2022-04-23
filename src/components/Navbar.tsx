@@ -8,10 +8,11 @@ import logo from "./../media/logo.svg";
 function Navbar() {
   return (
     <nav className="navbar navbar-expand-lg navbar-light bg-light container-fluid">
-      <img src={logo} className="App-logo rounded float-start" alt="logo" />
-
-      <a className="navbar-brand" href="#">
-        guidotorresmx
+      <a className="navbar-brand" href="https://www.guidotorres.mx/">
+        <img src={logo} className="App-logo rounded float-start" alt="logo" />
+      </a>
+      <a className="navbar-brand" href="https://www.guidotorres.mx/">
+        <h2>guidotorresmx</h2>
       </a>
 
       <button
