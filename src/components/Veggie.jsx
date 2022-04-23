@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react";
+import endpoint from "../endpoints.config";
 import styled from "styled-components";
 import { Splide, SplideSlide } from "@splidejs/react-splide";
 import "@splidejs/splide/dist/css/splide.min.css";
@@ -14,13 +15,16 @@ function Veggie() {
   // Render data 1st
   const getVeggie = async () => {
     // localstorage for storing our recipes
-    const check = localStorage.getItem("veggie");
-
-    if (check) {
+    console.log("veggie");
+    try {
+      console.log("veggie from localstorage");
+      const check = localStorage.getItem("veggie");
       setVeggie(JSON.parse(check));
-    } else {
+    } catch {
+      console.log("veggie from api");
+      console.log(endpoint.API_KEY);
       const api = await fetch(
-        `https://api.spoonacular.com/recipes/random?apiKey=${process.env.API_KEY}&number=9&tage=vegetarian`
+        `https://api.spoonacular.com/recipes/random?apiKey=${endpoint.API_KEY}&number=9&tage=vegetarian`
       );
       const data = await api.json();
 
